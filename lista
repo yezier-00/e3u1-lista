@@ -1,0 +1,85 @@
+package archivo;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class ARCHIVO {
+ public void oedenar() {
+	 List <String>listaordenada=new ArrayList<String>();
+	 listaordenada.add("hola a todos");
+	 ArrayList<String> comparador=new ArrayList<String>();
+	 String palabrasoriginales[]=null;
+	 String palabrasdearchivo[]=null;
+	 File archivo = null;
+     FileReader fr = null;
+     BufferedReader br = null;
+
+     try {
+        // Apertura del fichero y creacion de BufferedReader para poder
+        // hacer una lectura comoda (disponer del metodo readLine()).
+        archivo = new File ("‪C:\\Users\\chinoo\\Desktop\\archivo.txt");
+        fr = new FileReader (archivo);
+        br = new BufferedReader(fr);
+String cadena=("esto es una prueba ");
+String[]palabras=cadena.split(" ");
+for(String nombre:listaordenada){
+	palabrasoriginales=nombre.split(" ");
+}
+for(int i=0;i<palabrasoriginales.length;i++){
+	for(int j=0;j<palabrasdearchivo.length;j++) {
+		if(palabrasoriginales[i].equals(palabrasdearchivo[j])){
+			comparador.add(palabrasoriginales[i]);
+			comparador.add(palabrasdearchivo[j]);
+		}
+	}
+}
+System.out.println("texto de archivo");
+for(int i=0;i<palabrasdearchivo.length;i++){
+		System.out.println(palabrasdearchivo[i]);
+}
+System.out.println("frase ordenada");
+for(int i=0;i<palabrasoriginales.length;i++){
+	System.out.println(palabrasoriginales[i]);
+}
+System.out.println("ultimo arreglo");
+for(int i=0;i<palabrasoriginales.length;i++){
+	for(int j=0;j<palabrasdearchivo.length;j++){
+		if(palabrasoriginales[i].equals(palabrasdearchivo[j])){
+			 comparador.add(palabrasdearchivo[j]);
+		}
+	}
+}
+
+        // Lectura del fichero
+        String linea;
+        while((linea=br.readLine())!=null)
+           System.out.println(linea);
+        System.out.println(comparador);
+     }
+     
+     catch(Exception e){
+        e.printStackTrace();
+     }finally{
+        // En el finally cerramos el fichero, para asegurarnos
+        // que se cierra tanto si todo va bien como si salta 
+        // una excepcion.
+        try{                    
+           if( null != fr ){   
+              fr.close();     
+           }                  
+        }catch (Exception e2){ 
+           e2.printStackTrace();
+        }
+     }
+	 /*
+	  1.leer archivotxt
+	  2.separar palabra(metodo split)
+	  comparar palabras
+	  4.frase original(dentro del cofigo/preguntar a usuario)
+	  5.trabajar listas()
+	  */
+ }
+}
